@@ -30,12 +30,7 @@ app.controller('MealListCtrl', function ($scope, $ionicLoading, MealService) {
 /*********************************************************************
  * MealCreateCtrl
  *********************************************************************/
-app.controller('MealCreateCtrl', function ($scope,
-                                           $state,
-                                           $ionicPopup,
-                                           $ionicLoading,
-                                           $cordovaCamera,
-                                           MealService) {
+app.controller('MealCreateCtrl', function ($scope, $state, $ionicPopup, $ionicLoading, $cordovaCamera, MealService) {
 
 	$scope.resetFormData = function () {
 		$scope.formData = {
