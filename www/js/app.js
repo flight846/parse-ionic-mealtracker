@@ -24,9 +24,9 @@ app.run(function ($ionicPlatform) {
 		}
 	});
 
-		// Initialise Parse
-		Parse.initialize("<PLEASE-INSERT>");
-		Parse.serverURL = '<PLEASE-INSERT>';
+	// Initialise Parse
+	Parse.initialize("myAppId");
+	Parse.serverURL = 'http://parse-meal-tracker.herokuapp.com/parse';
 });
 
 app.config(function ($stateProvider, $urlRouterProvider) {

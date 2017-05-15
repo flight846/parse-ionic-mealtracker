@@ -11,9 +11,9 @@ app.controller('LoginCtrl', function ($scope, $state, AuthService) {
 	};
 
 	$scope.login = function (form) {
-		console.log("LoginCtrl::login");
 		if (form.$valid) {
-			//TODO
+			console.log("LoginCtrl::login");
+			AuthService.login($scope.formData.email, $scope.formData.password);
 		} else {
 			console.log("LoginCtrl::Form Invalid");
 		}
