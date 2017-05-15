@@ -29,12 +29,18 @@ app.controller('SignupCtrl', function ($scope, $state, AuthService) {
 	$scope.formData = {
 		"name": "",
 		"email": "",
-		"password": ""
+		"password": "",
+		"passwordAgain": ""
 	};
 
-	$scope.signup = function () {
+	$scope.signup = function (form) {
 		console.log("SignupCtrl::signup");
-		//TODO
+		if (form.$valid && $scope.formData.password == $scope.formData.passwordAgain) {
+			console.log("SignupCtrl::Form valid");
+			AuthService.signup($scope.formData.email, $scope.formData.name, $scope.formData.password)
+		} else {
+			console.log("SignupCtrl::Form Invalid");
+		}
 	};
 
 });

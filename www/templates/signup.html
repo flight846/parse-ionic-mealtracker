@@ -43,12 +43,22 @@
 					       ng-required="true"
 					       ng-minlength="8" >
 				</label>
-				<div class="form-errors"
-				     ng-messages="signupForm.password.$error">
-				     <div ng-messages-include="templates/form-errors.html"></div>
-					<div class="form-error"
-					     ng-message="minlength" >Password too short
-					</div>
+				<div class="form-errors" ng-messages="signupForm.password.$error">
+				    <div ng-messages-include="templates/form-errors.html"></div>
+				</div>
+
+				<label class="item item-input item-floating-label"
+					   ng-class="{'has-error':signupForm.passwordAgain.$invalid}" >
+					<span class="input-label" >Password Again</span>
+					<input type="password"
+						   placeholder="Password Again"
+						   name="passwordAgain"
+						   ng-model="formData.passwordAgain"
+						   ng-required="true"
+						   ng-minlength="8" >
+				</label>
+				<div class="form-errors" ng-messages="signupForm.passwordAgain.$error">
+				    <div ng-messages-include="templates/form-errors.html"></div>
 				</div>
 
 
