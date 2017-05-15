@@ -10,9 +10,13 @@ app.controller('LoginCtrl', function ($scope, $state, AuthService) {
 		"password": ""
 	};
 
-	$scope.login = function () {
+	$scope.login = function (form) {
 		console.log("LoginCtrl::login");
-		//TODO
+		if (form.$valid) {
+			//TODO
+		} else {
+			console.log("LoginCtrl::Form Invalid");
+		}
 	};
 
 });
