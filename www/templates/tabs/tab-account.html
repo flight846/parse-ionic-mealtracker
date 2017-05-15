@@ -1,12 +1,12 @@
 <ion-view view-title="Account">
 
-	<!--
+	<!-- Adding button to ion-nav-bar -->
 	<ion-nav-buttons side="secondary">
 		<button class="button button-clear"
 		        ng-click="logout()">Logout
-		</button >
-	</ion-nav-buttons >
-	-->
+		</button>
+	</ion-nav-buttons>
+
 
 	<ion-content padding="true"
 	             scroll="false">
@@ -26,7 +26,7 @@
 				</label>
 				<div class="form-errors"
 				     ng-messages="signupForm.name.$error">
-				     <div ng-messages-include="templates/form-errors.html">
+				     <div ng-messages-include="templates/form-errors.html"></div>
 				</div>
 
 				<label class="item item-input item-floating-label"
@@ -40,7 +40,7 @@
 				</label>
 				<div class="form-errors"
 				     ng-messages="signupForm.email.$error">
-				     <div ng-messages-include="templates/form-errors.html">
+				     <div ng-messages-include="templates/form-errors.html"></div>
 				</div>
 
 			</ion-list>

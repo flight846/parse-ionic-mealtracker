@@ -1,5 +1,12 @@
 <ion-view view-title="Track Meal">
 
+	<!-- Adding button to ion-nav-bar -->
+	<ion-nav-buttons side="secondary">
+		<button class="button button-icon ion-camera"
+				ng-click="addPicture()">
+		</button>
+	</ion-nav-buttons>
+
 	<ion-content>
 		<form name="createForm"
 		      novalidate=""
@@ -19,7 +26,7 @@
 				</label>
 				<div class="form-errors"
 				     ng-messages="createForm.title.$error">
-				     <div ng-messages-include="templates/form-errors.html">
+				     <div ng-messages-include="templates/form-errors.html"></div>
 				</div>
 
 				<!-- Category -->
@@ -41,14 +48,13 @@
 				</label>
 				<div class="form-errors"
 				     ng-messages="createForm.category.$error">
-				     <div ng-messages-include="templates/form-errors.html">
+				     <div ng-messages-include="templates/form-errors.html"></div>
 				</div>
 
 				<!-- Price -->
 				<label class="item item-input item-stacked-label"
 				       ng-class="{'has-error':createForm.price.$invalid}">
-					<span class="input-label">Calories
-					</span>
+					<span class="input-label">Calories</span>
 					<span class="calories">{{formData.calories}}cal</span>
 
 					<div class="range range-royal">
@@ -63,7 +69,7 @@
 				</label>
 				<div class="form-errors"
 				     ng-messages="createForm.calories.$error">
-				     <div ng-messages-include="templates/form-errors.html">
+				     <div ng-messages-include="templates/form-errors.html"></div>
 				</div>
 			</ion-list>
 
