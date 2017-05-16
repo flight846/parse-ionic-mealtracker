@@ -68,5 +68,4 @@ app.service('AuthService', function ($q, $ionicPopup) {
 	};
 
 	return self;
-})
-;
+});

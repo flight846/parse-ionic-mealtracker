@@ -10,6 +10,7 @@ app.controller('LoginCtrl', function ($scope, $state, AuthService) {
 		"password": ""
 	};
 
+	// => ng-submit="login(loginForm)"
 	$scope.login = function (form) {
 		if (form.$valid) {
 			console.log("LoginCtrl::login");
@@ -37,6 +38,7 @@ app.controller('SignupCtrl', function ($scope, $state, AuthService) {
 		"passwordAgain": ""
 	};
 
+	// => ng-submit="signup(signupForm)"
 	$scope.signup = function (form) {
 		console.log("SignupCtrl::signup");
 		if (form.$valid && $scope.formData.password == $scope.formData.passwordAgain) {
