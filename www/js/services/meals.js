@@ -24,7 +24,33 @@ app.service("MealService", function ($q, $ionicPopup, AuthService) {
 			self.isLoading = true;
 			var d = $q.defer();
 
-			//TODO
+			// Initialise query
+			var Meal = Parse.Object.extend('Meal'); // meal table
+			var mealQuery = new Parse.Query(Meal);
+			mealQuery.descending('created'); // result in order of creation
+			mealQuery.equalTo('owner', AuthService.user); // query where meals belongs to current user
+
+			// pagination
+			mealQuery.skip(self.page * self.page_size); // skip (page 1 * 20 records)
+			mealQuery.limit(self.page_size); // 20
+
+			// perform the query
+			mealQuery.find({
+				success: function(results) {
+					angular.forEach(results, function (item) {
+  						self.results.push(item)
+					});
+					console.debug(self.results);
+
+					// check if end of query list
+					if (results.length == 0) {
+						self.hasMore = false;
+					}
+
+					// done querying
+					d.resolve();
+				}
+			})
 
 			return d.promise;
 		},

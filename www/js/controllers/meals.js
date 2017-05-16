@@ -70,7 +70,7 @@ app.controller('MealCreateCtrl', function ($scope, $state, $ionicPopup, $ionicLo
 			encodingType: Camera.EncodingType.JPEG,
 			targetWidth: 480,
 			popoverOptions: CameraPopoverOptions,
-			saveToPhotoAlbum: true
+			saveToPhotoAlbum: false // change this to true when use with camera
 		};
 
 		$cordovaCamera.getPicture(options)
@@ -84,9 +84,6 @@ app.controller('MealCreateCtrl', function ($scope, $state, $ionicPopup, $ionicLo
 					subTitle: 'We had a proble, trying to get that picture, please try again.'
 				})
 	    	});
-
-
-
 	};
 
 });
