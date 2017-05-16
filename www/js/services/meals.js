@@ -1,6 +1,6 @@
 var app = angular.module('mealtrack.services.meals', []);
 
-app.service("MealService", function ($q) {
+app.service("MealService", function ($q, $ionicPopup, AuthService) {
 	var self = {
 		'page': 0,
 		'page_size': 20,
@@ -32,7 +32,42 @@ app.service("MealService", function ($q) {
 			self.isSaving = true;
 			var d = $q.defer();
 
-			//TODO
+			// create new Parse Object table
+			var Meal = Parse.Object.extend('Meal');
+
+			// get current user
+			var user = AuthService.user;
+
+			// save picture file as url
+			var file = data.picture ? new Parse.File('photo.jpg', { base64: data.picture }) : null;
+
+			// create new row in Meal object table
+			var meal = new Meal();
+
+			// parse Meal object properties
+			meal.set('owner', user);
+			meal.set('picture', file);
+			meal.set('title', data.title);
+			meal.set('category', data.category);
+			meal.set('calories', parseInt(data.calories));
+			meal.set('created', new Date());
+
+			// save to Parse
+			meal.save(null, {
+				success: function(meal) {
+					console.log('Meal created!');
+					self.results.unshift(meal);
+					d.resolve(meal);
+				},
+				error: function(item, error) {
+					$ionicPopup.alert({
+						title: 'Error saving meal',
+						subTitle: error.message
+					});
+					d.reject(error);
+				}
+			});
+
 
 			return d.promise;
 		}
